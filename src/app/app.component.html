@@ -1,20 +1,62 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Desarrollado por Santiago Pineda</a>
+  </div>
+</nav>
+<div class="row" style="margin-left: 1rem; margin-top: 2rem;">
+  <!-- Descarga normal, documento básico -->
+  <div class="card col-3" style="width: 18rem; margin-left: 1rem; height: 377px; margin-top: 1rem;">
+    <img src="../assets/images/excelJs.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Documento normal</h5>
+      <p class="card-text">En este documento se pueden encontrar columnas con datos</p>
+      <a (click)="excelNormal()" class="btn btn-primary">Descargar</a>
+    </div>
+  </div>
+  <!-- Documento con columnas dinámicas que son nombradas por el usuario -->
+  <div class="card col-3 overflow-auto" style="width: 18rem; margin-left: 1rem; height: 377px; margin-top: 1rem;">
+    <img src="../assets/images/excelJs.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Documento con columnas dinámicas</h5>
+      <p class="card-text">En este documento se pueden controlar los nombres de las columnas mediante inputs. También se evidencia que es posible ajustar el tamaño de las columnas según el tamaño de los caracteres ingresados.</p>
+      <form [formGroup]="columnsForm" (ngSubmit)="dynamicColumns()">
 
+        <div class="mb-3">
+          <label for="first-name" class="form-label">Columna 1</label>
+          <input type="text" class="form-control" id="first-name" placeholder="Columna 1" formControlName="firstColumn">
+        </div>
+      
+        <div class="mb-3">
+          <div class="mb-3">
+            <label for="last-name" class="form-label">Columna 2</label>
+            <input type="text" class="form-control" id="last-name" placeholder="Columna 2" formControlName="lastColumn">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Descargar</button>
+      </form>
+    </div>
+  </div>
+  <!-- Documento con validaciones en ciertas columnas -->
+  <div class="card col-3 overflow-auto" style="width: 18rem; margin-left: 1rem; height: 377px; margin-top: 1rem;">
+    <img src="../assets/images/excelJs.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Documento con validaciones en ciertas columnas</h5>
+      <p class="card-text">En este documento se pueden insertar datos para realizar comparaciones y operaciones</p>
+      <form [formGroup]="dataForm" (ngSubmit)="dataValidations()">
+
+        <div class="mb-3">
+          <label for="first-name" class="form-label">Dato 1</label>
+          <input type="text" class="form-control" id="first-name" placeholder="Ingrese dato 1" formControlName="firstData">
+        </div>
+      
+        <div class="mb-3">
+          <div class="mb-3">
+            <label for="last-name" class="form-label">Dato 2</label>
+            <input type="text" class="form-control" id="last-name" placeholder="Ingrese dato 2" formControlName="lastData">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Descargar</button>
+      </form>
+    </div>
+  </div>
+</div>
